@@ -42,5 +42,11 @@ Issues = "https://github.com/vivarium-collective/pbg-amici/issues"
 [tool.hatch.build.targets.wheel]
 packages = ["pbg_amici"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# AMICI dumps a compiled package per model under amici_models/; pytest
+# must not try to collect those as test files.
+norecursedirs = ["amici_models", ".pbg", "investigations", "demo"]
+
 [tool.uv.sources]
 vivarium-dashboard = { path = "/Users/eranagmon/code/vivarium-dashboard", editable = true }
