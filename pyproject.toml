@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pbg-amici"
+version = "0.1.0"
+description = "Process-bigraph wrapper for AMICI (Advanced Multilanguage Interface to CVODES and IDAS)"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [{name = "pbg-amici authors", email = "noreply@example.com"}]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "bigraph-schema>=0.0.60",
+    "process-bigraph>=0.0.66",
+    "amici>=1.0",
+    "antimony>=2.13",
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "matplotlib", "plotly", "bigraph-viz"]
+
+[project.urls]
+Homepage = "https://github.com/vivarium-collective/pbg-amici"
+Upstream = "https://github.com/AMICI-dev/AMICI"
+Issues = "https://github.com/vivarium-collective/pbg-amici/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pbg_amici"]
