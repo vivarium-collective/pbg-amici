@@ -21,6 +21,14 @@ dependencies = [
     "amici>=1.0",
     "antimony>=2.13",
     "numpy",
+    "bigraph-viz>=2.0.3",
+    "pyyaml>=6.0",
+    "jsonschema[format-nongpl]>=4.21",
+    "jinja2>=3.1",
+    "pypdf>=4.0",
+    "matplotlib",
+    "plotly",
+    "vivarium-dashboard",
 ]
 
 [project.optional-dependencies]
@@ -33,3 +41,6 @@ Issues = "https://github.com/vivarium-collective/pbg-amici/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pbg_amici"]
+
+[tool.uv.sources]
+vivarium-dashboard = { path = "/Users/eranagmon/code/vivarium-dashboard", editable = true }
