@@ -12,6 +12,17 @@ This is a **real bridge**: every `update()` call drives the genuine
 upstream AMICI runtime (`amici.sim.sundials.run_simulation`) — not a
 re-implementation of its math and not a mock.
 
+---
+
+### ▶ [**Live interactive demo report →**](https://vivarium-collective.github.io/pbg-amici/)
+
+Three AMICI-driven composites (exponential decay, Lotka-Volterra, MAPK
+cascade) running end-to-end through process-bigraph, with Plotly time-series
+charts, interactive bigraph diagrams, full antimony model sources, and the
+PBG document tree — all in one self-contained HTML page.
+
+---
+
 ## Installation
 
 ```bash
