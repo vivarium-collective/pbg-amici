@@ -58,7 +58,9 @@ def _resolve_source(config: dict) -> tuple[str, str]:
         return "antimony", ant
     if sbml:
         return "sbml", sbml
-    return "sbml", Path(sbml_file).read_text()
+    # SBML files frequently carry non-ASCII metadata (µ, °, accented names);
+    # read as UTF-8 rather than the platform default (ascii under a C locale).
+    return "sbml", Path(sbml_file).read_text(encoding="utf-8")
 
 
 def _compile_model(
@@ -80,7 +82,7 @@ def _compile_model(
         sbml_path = source
     else:
         sbml_path = str(model_dir / "model.sbml")
-        Path(sbml_path).write_text(source)
+        Path(sbml_path).write_text(source, encoding="utf-8")
     importer = SbmlImporter(sbml_path)
     importer.sbml2amici(
         model_name=model_id, output_dir=str(model_dir), verbose=verbose,
