@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Process-bigraph wrapper for AMICI (Advanced Multilanguage Interface to CVODES and IDAS)"
 readme = "README.md"
 license = {text = "MIT"}
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 authors = [{name = "pbg-amici authors", email = "noreply@example.com"}]
 classifiers = [
     "License :: OSI Approved :: MIT License",
