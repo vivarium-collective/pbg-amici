@@ -1,5 +1,8 @@
 FROM python:3.13-slim-bookworm AS base
 
+# AMICI ships no wheel — `uv sync` builds it from sdist, which needs a full
+# C/C++ toolchain plus SWIG, CMake/Ninja, BLAS/LAPACK and HDF5 (AMICI links
+# against them). Without these, `uv sync` fails compiling the amici extension.
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         openssh-client \
@@ -7,7 +10,14 @@ RUN apt-get update && \
         build-essential \
         gcc \
         g++ \
+        gfortran \
         python3-dev \
+        swig \
+        cmake \
+        ninja-build \
+        libblas-dev \
+        liblapack-dev \
+        libhdf5-dev \
     && rm -rf /var/lib/apt/lists/*
 
 ENV PYTHONUNBUFFERED=1 \
