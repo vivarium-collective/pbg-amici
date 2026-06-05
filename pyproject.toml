@@ -32,7 +32,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "matplotlib", "plotly", "bigraph-viz"]
+# ninja provides the build backend AMICI invokes to compile each model's C++
+# extension at runtime; the bridge tests compile real models, so it must be on
+# PATH (amici pulls cmake-build-extension but not ninja itself).
+dev = ["pytest", "matplotlib", "plotly", "bigraph-viz", "ninja"]
 
 [project.urls]
 Homepage = "https://github.com/vivarium-collective/pbg-amici"
