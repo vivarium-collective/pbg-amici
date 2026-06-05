@@ -1,6 +1,6 @@
 """pbg-amici: process-bigraph wrapper for AMICI."""
 
-from .processes import AmiciProcess
+from .processes import AmiciProcess, AmiciUTCStep, AmiciSteadyStateStep
 from . import composites  # noqa: F401  (registers @composite_generator decorations)
 
-__all__ = ["AmiciProcess"]
+__all__ = ["AmiciProcess", "AmiciUTCStep", "AmiciSteadyStateStep"]
