@@ -10,10 +10,11 @@ output/
 *.nc
 .idea/
 amici_models/
-.pbg/
 
-
-# Added by pbg-superpowers in-place scaffolder
+# Added by pbg-superpowers in-place scaffolder.
+# NOTE: use `.pbg/*` (ignore contents) not `.pbg/` (ignore the dir itself) —
+# a blanket `.pbg/` makes the `!.pbg/schemas/` re-include impossible, since
+# git can't re-include a path whose parent directory is excluded.
 .pbg/*
 !.pbg/schemas/
 investigations/*/runs.db
